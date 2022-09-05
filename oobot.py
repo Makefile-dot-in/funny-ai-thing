@@ -78,6 +78,7 @@ async def runoober(interaction: discord.Interaction):
 
 @client.event
 async def on_message(m: discord.Message):
+    if m.author.bot: return
     if client.user.mentioned_in(m) and m.channel.id == channel_id:
         await runcompletion(m.channel, m.guild)
 
